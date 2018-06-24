@@ -60,7 +60,7 @@ var roads = [
     for (let turn = 0; ; turn++) {            //iterates forever until there are no objects in parcels array
       if (state.parcels.length == 0) {
           //console.log(`Done in ${turn} turns.`);
-        return turn;
+        return turn;            //THIS WAS ADDED AS PART OF THE MEASURE A ROBOT SOLUTION
         break;
       }
       let action = robot(state, memory);
@@ -152,7 +152,7 @@ var roads = [
   //console.log(roadGraph)
   
 
-  //COMPARE ROBOTS SOLITION
+  //MEASURING A ROBOT SOLUTION
   
   function compareRobots(robot1, memory1, robot2, memory2, robot3, parcels=5){
     let robot1Turns = 0;
@@ -163,7 +163,8 @@ var roads = [
       robot2Turns += runRobot(VillageState.random(parcels), robot2, memory2);
       robot3Turns += runRobot(VillageState.random(parcels), robot3);
     }
-    console.log("Starting with " + parcels + " parcels:\n" + robot1.name + ": " + robot1Turns + ", " + robot2.name + ": " + robot2Turns + ", " + robot3.name + ": " + robot3Turns + ".");
+    console.log(`Starting with ${parcels} parcels:
+${robot1.name}: ${robot1Turns}, ${robot2.name}: ${robot2Turns}, ${robot3.name}: ${robot3Turns}.`);
   }
   
   compareRobots(routeRobot, [], goalOrientedRobot, [], randomRobot, 50);
